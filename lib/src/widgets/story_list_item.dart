@@ -19,61 +19,63 @@ class StoryListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: aspectRatio ?? (1 / 2),
-      child: Container(
-        margin: const EdgeInsets.all(8),
-        foregroundDecoration: BoxDecoration(
-          color: isSeen ? Colors.grey.withOpacity(0.25):null,
-          borderRadius: const BorderRadius.all(
-            Radius.circular(18),
-          ),
-        ),
-        decoration: BoxDecoration(
-
-          image: DecorationImage(image: CachedNetworkImageProvider(baseStory.coverImagePath ?? ""), fit: BoxFit.fill),
-          borderRadius: const BorderRadius.all(
-            Radius.circular(18),
-          ),
-        ),
+    return ClipRRect(
+      child: AspectRatio(
+        aspectRatio: aspectRatio ?? (1 / 2),
         child: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [Colors.transparent, Colors.black26.withOpacity(0.85)],
-            ),
+          margin: const EdgeInsets.all(8),
+          foregroundDecoration: BoxDecoration(
+            color: isSeen ? Colors.grey.withOpacity(0.25):null,
             borderRadius: const BorderRadius.all(
               Radius.circular(18),
             ),
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: CustomCircleAvatar(
-                  size: 34,
-                  backgroundColor: isSeen ? Colors.grey :const Color(0xff5dc3e9),
-                  child: CustomCircleAvatar(
-                    size: 28,
-                    imageUrl: baseStory.mainCategoryImagePath,
-                    backgroundColor: Colors.green,
-                  ),
-                ),
+          decoration: BoxDecoration(
+    
+            image: DecorationImage(image: CachedNetworkImageProvider(baseStory.coverImagePath ?? ""), fit: BoxFit.fill),
+            borderRadius: const BorderRadius.all(
+              Radius.circular(18),
+            ),
+          ),
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [Colors.transparent, Colors.black26.withOpacity(0.85)],
               ),
-              //const Spacer(),
-              Flexible(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 10, bottom: 15, right: 10),
-                  child: Text(
-                    baseStory.title ?? "",
-                    style: const TextStyle(color: Colors.white),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(18),
+              ),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: CustomCircleAvatar(
+                    size: 34,
+                    backgroundColor: isSeen ? Colors.grey :const Color(0xff5dc3e9),
+                    child: CustomCircleAvatar(
+                      size: 28,
+                      imageUrl: baseStory.mainCategoryImagePath,
+                      backgroundColor: Colors.green,
+                    ),
                   ),
                 ),
-              )
-            ],
+                //const Spacer(),
+                Flexible(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 10, bottom: 15, right: 10),
+                    child: Text(
+                      baseStory.title ?? "",
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
