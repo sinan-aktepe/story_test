@@ -1,0 +1,6 @@
+
+
+extension PiriStoryList on List {
+
+
+}
