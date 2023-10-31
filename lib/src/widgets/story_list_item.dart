@@ -7,7 +7,7 @@ class StoryListItem extends StatelessWidget {
     Key? key,
     this.aspectRatio,
     required this.baseStory,
-   // required this.onPressed,
+    // required this.onPressed,
     required this.index,
     required this.isSeen,
   }) : super(key: key);
@@ -19,20 +19,23 @@ class StoryListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('--------- STORY TEST ------------');
+    print('aspect ratio: $aspectRatio');
+    print('--------- STORY TEST ------------');
     return ClipRRect(
       child: AspectRatio(
         aspectRatio: aspectRatio ?? (1 / 2),
         child: Container(
           margin: const EdgeInsets.all(8),
           foregroundDecoration: BoxDecoration(
-            color: isSeen ? Colors.grey.withOpacity(0.25):null,
+            color: isSeen ? Colors.grey.withOpacity(0.25) : null,
             borderRadius: const BorderRadius.all(
               Radius.circular(18),
             ),
           ),
           decoration: BoxDecoration(
-    
-            image: DecorationImage(image: CachedNetworkImageProvider(baseStory.coverImagePath ?? ""), fit: BoxFit.fill),
+            image:
+                DecorationImage(image: CachedNetworkImageProvider(baseStory.coverImagePath ?? ""), fit: BoxFit.cover),
             borderRadius: const BorderRadius.all(
               Radius.circular(18),
             ),
@@ -56,7 +59,7 @@ class StoryListItem extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: CustomCircleAvatar(
                     size: 34,
-                    backgroundColor: isSeen ? Colors.grey :const Color(0xff5dc3e9),
+                    backgroundColor: isSeen ? Colors.grey : const Color(0xff5dc3e9),
                     child: CustomCircleAvatar(
                       size: 28,
                       imageUrl: baseStory.mainCategoryImagePath,
