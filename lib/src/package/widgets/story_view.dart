@@ -257,6 +257,7 @@ class StoryItem {
           key: key,
           color: Colors.black,
           child: Stack(
+            fit: StackFit.expand,
             children: <Widget>[
               StoryVideo.url(
                 url,

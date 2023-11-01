@@ -83,6 +83,7 @@ class _StoryDetailViewState extends State<StoryDetailView> {
         storyItems.add(StoryItem.pageImage(
             controller: _storyController,
             url: baseStoryItem.storyFilePath!,
+            imageFit: BoxFit.cover,
             //caption: widget.storyGroupId,
             position: i,
             loadingWidget: widget.loadingWidget,
@@ -91,6 +92,7 @@ class _StoryDetailViewState extends State<StoryDetailView> {
       } else if (baseStoryItem.storyType == StoryItemType.video) {
         if (baseStoryItem.storyFilePath == null) return;
         storyItems.add(StoryItem.pageVideo(baseStoryItem.storyFilePath!,
+            imageFit: BoxFit.cover,
             controller: _storyController,
             position: i,
             loadingWidget: widget.loadingWidget,
